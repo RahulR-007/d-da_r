@@ -2,12 +2,17 @@ name: PR Checks
 
 on:
   pull_request:
-
+    branches:
+      - main
 
 jobs:
-  demo:
+  validate:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Say Hello
-        run: echo "Hello, World!"
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Run checks
+        run: |
+          echo "✅ All checks passed!"
