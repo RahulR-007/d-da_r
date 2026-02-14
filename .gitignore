@@ -1,4 +1,2 @@
-node_modules/
-.env
-dist/
-*.log
+# Ignore all .txt files
+*.txt
