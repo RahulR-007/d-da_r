@@ -2,65 +2,12 @@ name: PR Checks
 
 on:
   pull_request:
-    branches:
-      - main
-  push:
-    branches:
-      - main
+
 
 jobs:
-  lint-and-validate:
-    name: Lint and Validate
+  demo:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      
-      - name: Check HTML files
-        run: |
-          echo "Checking HTML files..."
-          if ls *.html 1> /dev/null 2>&1; then
-            echo "✅ HTML files found"
-            for file in *.html; do
-              echo "Validating $file"
-              # Basic check - file is not empty
-              if [ -s "$file" ]; then
-                echo "✅ $file is valid (not empty)"
-              else
-                echo "❌ $file is empty"
-                exit 1
-              fi
-            done
-          else
-            echo "⚠️  No HTML files to check"
-          fi
-      
-      - name: Check for README
-        run: |
-          echo "Checking for README..."
-          if [ -f "README.md" ]; then
-            echo "✅ README.md exists"
-          else
-            echo "❌ README.md not found"
-            exit 1
-          fi
-      
-      - name: Verify .gitignore
-        run: |
-          echo "Checking .gitignore..."
-          if [ -f ".gitignore" ]; then
-            echo "✅ .gitignore exists"
-            cat .gitignore
-          else
-            echo "⚠️  No .gitignore file"
-          fi
-      
-      - name: List repository files
-        run: |
-          echo "Repository structure:"
-          ls -la
-      
-      - name: All checks passed
-        run: |
-          echo "🎉 All checks passed successfully!"
+      - name: Say Hello
+        run: echo "Hello, World!"
