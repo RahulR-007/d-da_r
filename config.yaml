@@ -1,0 +1,7 @@
+app:
+  name: github
+  version: 1.0
+  environment: development
+
+server:
+  port: 3000
